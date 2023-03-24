@@ -10,6 +10,7 @@ import {
   MDBNavbarBrand,
   MDBCollapse
 } from 'mdb-react-ui-kit';
+import { Outlet } from 'react-router-dom';
 
 export default function HeaderSite() {
   const [showNavColor, setShowNavColor] = useState(false);
@@ -19,10 +20,10 @@ export default function HeaderSite() {
   return (
     <>
 
-
+<React.Fragment>
       <MDBNavbar expand='lg' dark bgColor='dark'>
         <MDBContainer fluid>
-          <MDBNavbarBrand href='#'>Navbar</MDBNavbarBrand>
+          <MDBNavbarBrand href='#'>Expense Tracker</MDBNavbarBrand>
           <MDBNavbarToggler
             type='button'
             data-target='#navbarColor02'
@@ -54,6 +55,8 @@ export default function HeaderSite() {
         </MDBContainer>
       </MDBNavbar>
 
+      <Outlet/>
+      </React.Fragment>
 
     </>
   );

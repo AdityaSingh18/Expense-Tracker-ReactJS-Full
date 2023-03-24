@@ -12,12 +12,13 @@ import {
   MDBCheckbox
 }
 from 'mdb-react-ui-kit';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 
 
 const Login = ()=>{
 
-
+ const navigate = useNavigate();
   const signUpEmailRef =useRef('')
   const signUpPasswordRef =useRef('')
  const signUpConfirmPasswordRef = useRef('')
@@ -52,6 +53,7 @@ headers: {
 if (res.ok) {
 const data = await res.json();
 const convertedData = JSON.stringify(data)
+navigate('/expensetracker',{replace:true})
 localStorage.setItem('tokenId', convertedData);
 
 } else {
@@ -87,9 +89,14 @@ if(signUpPasswordRef.current.value==signUpConfirmPasswordRef.current.value){
   
   if (res.ok) {
   alert('User has successfully signed up.')
+  navigate('/expensetracker',{replace:true})
+  const data = await res.json();
+  const convertedData = JSON.stringify(data)
+localStorage.setItem('tokenId', convertedData);
   
   } else {
   const data = await res.json();
+  
   throw new Error(data.error.message);
   }
   } catch (err) {
@@ -217,6 +224,7 @@ else{
       </MDBTabsContent>
 
     </MDBContainer>
+    
   );
 }
 
