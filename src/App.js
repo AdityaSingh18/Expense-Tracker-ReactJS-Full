@@ -16,6 +16,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import HeaderSite from "./Component/UI/HeaderSite";
 import ExpenseTracker from "./Component/Pages/ExpenseTracker";
 import Error from "./Component/Pages/Error";
+import UpdateProfile from "./Component/Pages/UpdateProfile";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route index element={<Login/>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/expensetracker" element={<ExpenseTracker />} />
+          <Route path="updateprofile" element={<UpdateProfile/>}/>
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>
